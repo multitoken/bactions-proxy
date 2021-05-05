@@ -27,6 +27,6 @@ library BalancerConstants {
     uint public constant MAX_OUT_RATIO = (BONE / 3) + 1 wei;
     // Must match BConst.MIN_BOUND_TOKENS and BConst.MAX_BOUND_TOKENS
     uint public constant MIN_ASSET_LIMIT = 2;
-    uint public constant MAX_ASSET_LIMIT = 8;
+    uint public constant MAX_ASSET_LIMIT = 256;
     uint public constant MAX_UINT = uint(-1);
 }
