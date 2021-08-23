@@ -4,6 +4,8 @@ const CRPFactory = artifacts.require('CRPFactory');
 const BalancerSafeMath = artifacts.require('BalancerSafeMath');
 const BActions = artifacts.require('BActions');
 const BFactory = artifacts.require('BFactory');
+const TTokenFactory = artifacts.require("TTokenFactory");
+const DSProxyFactory = artifacts.require("DSProxyFactory");
 
 module.exports = async function(deployer, network, accounts) {
     if (network == 'development' || network == 'soliditycoverage') {
@@ -19,7 +21,10 @@ module.exports = async function(deployer, network, accounts) {
         await deployer.deploy(CRPFactory);
 
         await deployer.deploy(BActions, BFactory.address);
-    } else if (network == 'kovan-fork' || network == 'kovan') {
-        deployer.deploy(BActions, '0x418a1cEe2715594b8730a5adFeA75ecAF02b7b31');
+
+        deployer.deploy(TTokenFactory);
+        deployer.deploy(DSProxyFactory);
+    } else {
+        deployer.deploy(BActions, process.env.BFACTORY_ADDRESS);
     }
 }

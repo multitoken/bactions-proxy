@@ -23,7 +23,7 @@ module.exports = {
             skipDryRun: true,
             disableConfirmationListener: true,
             deploymentPollingInterval: 16000,
-            gasPrice: 5000000000, // 5 Gwei
+            gasPrice: 15000000000, // 5 Gwei
         },
         bsc: {
             provider: () => new HDWalletProvider([process.env.DEPOYER_PRIVATE_KEY], 'https://bsc-dataseed.binance.org'),
